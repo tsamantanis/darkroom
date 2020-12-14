@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=0.7, user-scalable=no">
         <title>Darkroom</title>
         <link rel="stylesheet" href="styles.css">
         <script type="text/javascript">
@@ -39,10 +40,6 @@
                     }
                 }
                 document.addEventListener('mousemove', moveLightMouse);
-                document.body.addEventListener('touchmove', (event) => {
-                    event.preventDefault();
-                    event.stopPropagation();
-                })
                 document.addEventListener('touchmove', moveLightTouch);
 
                 document.getElementById('switch').addEventListener("click", (event) => {
