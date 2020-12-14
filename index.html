@@ -14,7 +14,8 @@
                 const heading = document.getElementById('heading');
                 const lighting = document.getElementById('lighting');
                 let lightingStyle = window.getComputedStyle(lighting);
-                document.addEventListener('mousemove', (event) => {
+
+                moveLight = (event) => {
                     light.style.position = "absolute";
                     light.style.left = `${event.clientX - radius}px`;
                     light.style.top = `${event.clientY - radius}px`;
@@ -23,7 +24,9 @@
                         heading.style.textShadow =
                             `${parseFloat(heading.offsetLeft + (heading.offsetWidth / 2) - event.clientX) / 5}px ${parseFloat(heading.offsetTop + (heading.offsetHeight / 2) - event.clientY) / 5}px 0px rgba(12, 12, 12, 0.25)`;
                     }
-                });
+                }
+                document.addEventListener('mousemove', moveLight});
+                document.addEventListener('touchmove', moveLight});
 
                 document.getElementById('switch').addEventListener("click", (event) => {
                     if (lightingStyle.getPropertyValue('background-color') === "rgb(12, 12, 12)") {
