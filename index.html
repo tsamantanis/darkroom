@@ -15,7 +15,7 @@
                 const lighting = document.getElementById('lighting');
                 let lightingStyle = window.getComputedStyle(lighting);
 
-                moveLight = (event) => {
+                moveLightMouse = (event) => {
                     light.style.position = "absolute";
                     light.style.left = `${event.clientX - radius}px`;
                     light.style.top = `${event.clientY - radius}px`;
@@ -25,8 +25,19 @@
                             `${parseFloat(heading.offsetLeft + (heading.offsetWidth / 2) - event.clientX) / 5}px ${parseFloat(heading.offsetTop + (heading.offsetHeight / 2) - event.clientY) / 5}px 0px rgba(12, 12, 12, 0.25)`;
                     }
                 }
-                document.addEventListener('mousemove', moveLight);
-                document.addEventListener('touchmove', moveLight);
+
+                moveLightTouch = (event) => {
+                    light.style.position = "absolute";
+                    light.style.left = `${event.pageX - radius}px`;
+                    light.style.top = `${event.pageY - radius}px`;
+
+                    if (lightingStyle.getPropertyValue('background-color') === "rgb(12, 12, 12)") {
+                        heading.style.textShadow =
+                            `${parseFloat(heading.offsetLeft + (heading.offsetWidth / 2) - event.pageX) / 5}px ${parseFloat(heading.offsetTop + (heading.offsetHeight / 2) - event.pageY) / 5}px 0px rgba(12, 12, 12, 0.25)`;
+                    }
+                }
+                document.addEventListener('mousemove', moveLightMouse);
+                document.addEventListener('touchmove', moveLightTouch);
 
                 document.getElementById('switch').addEventListener("click", (event) => {
                     if (lightingStyle.getPropertyValue('background-color') === "rgb(12, 12, 12)") {
