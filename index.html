@@ -39,7 +39,11 @@
                     }
                 }
                 document.addEventListener('mousemove', moveLightMouse);
-                document.addEventListener('touchmove', moveLightTouch, false);
+                document.body.addEventListener('touchmove', (event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                })
+                document.addEventListener('touchmove', moveLightTouch);
 
                 document.getElementById('switch').addEventListener("click", (event) => {
                     if (lightingStyle.getPropertyValue('background-color') === "rgb(12, 12, 12)") {
