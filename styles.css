@@ -34,7 +34,7 @@ h1 {
 
 .light {
     background: #FFFBD6;
-    box-shadow: 0px 0px 100px 250px #FFFBD6;
-    -webkit-box-shadow: 0px 0px 100px 250px #FFFBD6;
+    box-shadow: 0px 0px 60px 180px #FFFBD6;
+    -webkit-box-shadow: 0px 0px 60px 180px #FFFBD6;
     border-radius: 100%;
 }
