@@ -27,6 +27,8 @@
                 }
 
                 moveLightTouch = (event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
                     light.style.position = "absolute";
                     light.style.left = `${event.pageX - radius}px`;
                     light.style.top = `${event.pageY - radius}px`;
@@ -37,7 +39,7 @@
                     }
                 }
                 document.addEventListener('mousemove', moveLightMouse);
-                document.addEventListener('touchmove', moveLightTouch);
+                document.addEventListener('touchmove', moveLightTouch, false);
 
                 document.getElementById('switch').addEventListener("click", (event) => {
                     if (lightingStyle.getPropertyValue('background-color') === "rgb(12, 12, 12)") {
